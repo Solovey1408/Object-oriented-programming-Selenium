@@ -4,14 +4,11 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 class Test:
-
-    base_url = 'https://www.saucedemo.com/'
-    window_width = 1920
-    window_height = 1080
+    BASE_URL = 'https://www.saucedemo.com/'
+    WINDOWS_SIZE = (1920, 1080)
 
 
     def __init__(self):
-
         self._init_driver()
 
 
@@ -21,12 +18,11 @@ class Test:
         self.driver = webdriver.Chrome(
             options=self.options,
             service=ChromeService(ChromeDriverManager().install()))
-        self.driver.set_window_size(self.window_width, self.window_height)
+        self.driver.set_window_size(self.WINDOWS_SIZE)
 
 
     def test_select_product(self):
-
-        self.driver.get(self.base_url)
+        self.driver.get(self.BASE_URL)
 
 
 start_test = Test()
