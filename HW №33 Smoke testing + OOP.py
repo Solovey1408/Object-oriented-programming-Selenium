@@ -5,14 +5,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class Test:
     BASE_URL = 'https://www.saucedemo.com/'
     WINDOWS_SIZE = (1920, 1080)
 
-
     def __init__(self):
         self._init_driver()
-
 
     def _init_driver(self):
         self.options = webdriver.ChromeOptions()
@@ -21,7 +20,6 @@ class Test:
             options=self.options,
             service=ChromeService(ChromeDriverManager().install()))
         self.driver.set_window_size(*self.WINDOWS_SIZE)
-
 
     def test_select_product(self):
         self.driver.get(self.BASE_URL)
